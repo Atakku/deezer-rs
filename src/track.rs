@@ -12,6 +12,7 @@ pub struct Track {
     pub title_version: Option<String>,
     pub isrc: Option<String>,
     pub link: Option<String>,
+    pub track_position: Option<u32>,
     pub duration: u32,
     pub rank: Option<u32>,
     pub explicit_lyrics: bool,
