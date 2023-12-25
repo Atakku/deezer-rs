@@ -51,7 +51,12 @@ impl Deezer {
     }
 
     pub fn new() -> Self {
-        let client: Client = Config::new()
+        let retry = RetryMiddleware::new(
+            5,
+            ExponentialBackoff::builder().build_with_max_retries(5),
+            2,
+        );
+        let client: Client = Config::new().with(retry)
             .set_base_url(Url::parse(BASE_URL).unwrap())
             .set_timeout(Some(Duration::from_secs(5)))
             .try_into()
