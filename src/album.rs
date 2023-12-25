@@ -29,7 +29,7 @@ pub struct Album {
   pub explicit_content_lyrics: Option<u32>,
   pub explicit_content_cover: Option<u32>,
   pub r#type: String,
-  pub artist: AlbumArtist,
+  pub artist: Option<AlbumArtist>,
 }
 
 #[derive(Debug, Deserialize)]
