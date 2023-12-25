@@ -17,7 +17,7 @@ pub struct Album {
   pub cover_big: String,
   pub cover_xl: String,
   pub genre_id: Option<i64>,
-  pub genres: Option<Vec<Genre>>,
+  pub genres: Option<Genres>,
   pub label: Option<String>,
   pub nb_tracks: Option<u32>,
   pub duration: Option<u32>,
@@ -38,6 +38,12 @@ pub struct Album {
 pub struct AlbumArtist {
   pub id: u64,
   pub name: String,
+}
+
+
+#[derive(Debug, Deserialize)]
+pub struct Genres {
+  pub data: Vec<Genre>,
 }
 
 #[derive(Debug, Deserialize)]
