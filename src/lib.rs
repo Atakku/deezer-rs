@@ -1,6 +1,7 @@
 use std::convert::TryInto;
 use std::time::Duration;
 use surf::{Client, Config, Url};
+use surf_retry::{ExponentialBackoff, RetryMiddleware};
 
 pub mod album;
 pub mod artist;
