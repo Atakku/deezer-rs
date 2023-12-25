@@ -33,12 +33,7 @@ pub struct Deezer {
 const BASE_URL: &str = "https://api.deezer.com/";
 
 impl Deezer {
-    pub fn new() -> Self {
-        let client: Client = Config::new()
-            .set_base_url(Url::parse(BASE_URL).unwrap())
-            .set_timeout(Some(Duration::from_secs(5)))
-            .try_into()
-            .unwrap();
+    pub fn from_client(client: Client) -> Self {
         Self {
             album: album::AlbumService::new(&client),
             artist: artist::ArtistService::new(&client),
@@ -53,5 +48,14 @@ impl Deezer {
             track: track::TrackService::new(&client),
             user: user::UserService::new(&client),
         }
+    }
+
+    pub fn new() -> Self {
+        let client: Client = Config::new()
+            .set_base_url(Url::parse(BASE_URL).unwrap())
+            .set_timeout(Some(Duration::from_secs(5)))
+            .try_into()
+            .unwrap();
+        Self::from_client(client)
     }
 }
