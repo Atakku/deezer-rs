@@ -56,11 +56,11 @@ impl Deezer {
             ExponentialBackoff::builder().build_with_max_retries(5),
             2,
         );
-        let client: Client = Config::new().with(retry)
+        let client: Client = Config::new()
             .set_base_url(Url::parse(BASE_URL).unwrap())
             .set_timeout(Some(Duration::from_secs(5)))
             .try_into()
-            .unwrap();
+            .unwrap().with(retry);
         Self::from_client(client)
     }
 }
