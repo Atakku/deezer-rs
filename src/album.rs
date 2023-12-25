@@ -43,7 +43,13 @@ pub struct AlbumArtist {
 
 #[derive(Debug, Deserialize)]
 pub struct Genres {
-  pub data: Vec<Genre>,
+  pub data: Vec<Genr>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct Genr {
+  pub id: i64,
+  pub name: String,
 }
 
 #[derive(Debug, Deserialize)]
