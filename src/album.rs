@@ -1,3 +1,4 @@
+use crate::genre::Genre;
 use crate::track::Tracks;
 use crate::user::Users;
 use serde::Deserialize;
@@ -16,6 +17,7 @@ pub struct Album {
   pub cover_big: String,
   pub cover_xl: String,
   pub genre_id: Option<i64>,
+  pub genres: Option<Vec<Genre>>,
   pub label: Option<String>,
   pub nb_tracks: Option<u32>,
   pub duration: Option<u32>,
