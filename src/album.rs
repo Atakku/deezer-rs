@@ -34,7 +34,7 @@ pub struct Album {
 
 #[derive(Debug, Deserialize)]
 pub struct AlbumArtist {
-  pub id: String,
+  pub id: u64,
   pub name: String,
 }
 
