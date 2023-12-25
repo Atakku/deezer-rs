@@ -61,7 +61,7 @@ impl Deezer {
             .set_base_url(Url::parse(BASE_URL).unwrap())
             .set_timeout(Some(Duration::from_secs(5)))
             .try_into()
-            .unwrap().with(retry);
-        Self::from_client(client)
+            .unwrap();
+        Self::from_client(client.with(retry))
     }
 }
